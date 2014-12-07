@@ -1,0 +1,28 @@
+.default {
+  fill: #906abd !important;
+}
+
+.red {
+  fill: #FF0000;
+}
+
+.violet {
+  fill: #FF0080;
+}
+
+
+.mediumviolet {
+  fill: #8A0C81;
+}
+
+.blueviolet {
+  fill: #580C8A;
+}
+
+.indigo {
+  fill: #331585;
+}
+
+.blue {
+  fill: #1D006E;
+}

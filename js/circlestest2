@@ -1,0 +1,70 @@
+$(document).ready(function () {
+  $.ajax({
+    dataType: "json",
+    url: "http://10.0.16.136/dataviz.info/data/home.php",
+    success: drawCircles
+  });
+
+});
+
+    function drawCircles(JSONdata) {
+      var pxMax = 50; // pixels
+      var circle = d3.select("svg").selectAll("circle");
+      var w = 600;
+      var h = 1280;
+      var padding = 30;
+      var nodes = d3.range(JSONdata.length).map(function() { return {radius: Math.random() * 12 + 30}; 
+
+      var force = d3.layout.force()
+      .gravity(0.5)
+      .charge(-1000)
+      .nodes(nodes)
+      .size([w, h]);
+    
+      var root = nodes[0];
+       root.radius = 0;
+       root.fixed = true;
+
+      force.start();
+      
+      var node = svg.selectAll('.node')
+       .data(JSONdata)
+       .enter().append("g")
+       .attr('class', 'node')
+       .call(force.drag);
+
+    
+        node.append("circle")
+        .attr("market", function(d){ return d.market })
+        // .attr("r", function(d) { return Math.sqrt(d); })
+        .attr("r", function(d) { return d.amount * pxMax; })
+        .attr("cy", function(d, i) { return i * 100 + padding; })
+        .attr("cx", function(d, i) { return i * 100 + padding; })
+        .attr("class", function(d) { 
+          var c = "";
+          if (d.time_since_last <= 3) {c = "red"} 
+          else if (d.time_since_last> 3 && d.time_since_last <= 6) {c = "violet"}
+          else if (d.time_since_last > 6 && d.time_since_last <= 9) {c = "mediumvioletred"}
+          else if (d.time_since_last > 9 && d.time_since_last <= 12) {c = "violet"}
+          else if (d.time_since_last > 12 && d.time_since_last <= 18) {c = "blueviolet"}
+          else if (d.time_since_last > 18) {c = "indigo"}
+          return c;
+         })
+        .attr("class", function(d) {return "default"; });
+    }
+    
+    function removeCircleColorClass(name) {
+      var circleSelected = d3.select("#" + name);
+          circleSelected.classed("default", false);
+    }
+    
+    $(document).keyup(function(evt) {
+      if (evt.keyCode == 32) {
+        var userInput = $("#mrktbeat_search").text
+        // select the circle with d.name that matches the userInput
+        // then select its id
+        $("#mrktbeat_search").tokenInput("data/search.php", {
+          theme: "facebook"
+        });
+      }
+    });  
