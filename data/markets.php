@@ -39,6 +39,28 @@ foreach($sql_queries as $market => $sql_query) {
 	$sql_results[$market] = $mysqli->query($sql_query) or die($mysqli->error.__LINE__);
 }
 
+
+//for prefilling TokenInput field
+$tokenInputData = "[";
+$curRow = 1;
+foreach ($markets as $index => $market) {
+	$sql_query = "Select
+				  crunchbase.markets.id,
+				  crunchbase.markets.name
+				From
+				  crunchbase.markets
+				Where
+				  crunchbase.markets.name = \"$market\"";
+
+	$result = $mysqli->query($sql_query) or die($mysqli->error.__LINE__);
+	$tokenInputData .= json_encode($result->fetch_assoc());
+	if ($curRow != count($markets)) {
+		$tokenInputData .= ",";
+	}
+	$curRow++;
+}
+$tokenInputData .= "]";
+
 // Close the database connection
 $mysqli->close();
 
@@ -68,5 +90,6 @@ foreach($sql_results as $market => $sql_result) {
 }
 
 $chartsData .= "]";
+
 
 ?>

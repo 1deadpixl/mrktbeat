@@ -112,6 +112,7 @@ div.token-input-dropdown-mrktbeat {
 
 #home div.token-input-dropdown-mrktbeat {
     width: 475px;
+    /* position: relative !important; */
 }
 
 div.token-input-dropdown-mrktbeat p {

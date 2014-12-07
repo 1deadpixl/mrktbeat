@@ -15,9 +15,6 @@ include ("header.php");
 				}
 			}
 			for(var i = 0; i < this.series.length; i++) {
-
-				console.log(this.series[i]);
-
 				var thisNormalizedPtCount = this.series[i].points.length / maxValue;
 				var thisLabel = $('<div/>', { id: this.series[i].name })
 									.appendTo($('#legend'))
@@ -55,7 +52,14 @@ include ("header.php");
 		    	chart: {
 		    		type: 'areaspline',
 		    		zoomType: 'x',
-		    		events: { load: drawLegend }
+		            panning: true,
+		            panKey: 'shift',
+		    		events: { load: drawLegend },
+		    		spacing: 0,
+		    		style: {
+						fontFamily: '"theFont", sans-serif', // default font
+						fontSize: '12px'
+					}
 		    	},
 		    	title: {
 		    		text: null
@@ -65,10 +69,23 @@ include ("header.php");
 		    	},
 		        xAxis: {
 		        	type: 'datetime',
-		            minRange: 14 * 24 * 3600000 // fourteen days
+		            minRange: 14 * 24 * 3600000, // fourteen days
+		            startOnTick: true,
+		            endOnTick: true,
+		            labels: {
+		            	align: "center"
+		            }
 		        },
-
+		        yAxis: {
+		        	startOnTick: true,
+		        	endOnTick: true,
+		            title: {
+		            	align: "low",
+		            	text: "$ Invested",
+		            	style: { "fontSize": "16px" }
+		            }
+		        },
 		        series: <?= $chartsData; ?>
 		    });
-		    
+
 <?php include("footer.php"); ?>

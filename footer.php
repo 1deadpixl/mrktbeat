@@ -21,7 +21,8 @@ $(function() {
                     theme: "mrktbeat",
                     preventDuplicates: true,
                     tokenValue: "name",
-                    hintText: "Type a market name"
+                    hintText: "Type a market name",
+                    prePopulate: <?= $tokenInputData; ?>
                 });
 		});
 	</script>
