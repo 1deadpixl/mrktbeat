@@ -1,0 +1,65 @@
+    <html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="src/jquery.tokeninput.js"></script>
+
+    <link rel="stylesheet" href="styles/token-input.css" type="text/css" />
+    <link rel="stylesheet" href="styles/token-input-mrktbeat.css" type="text/css" />
+    <link rel="stylesheet" href="styles/mrktbeat.css" type="text/css" />
+
+    <style>
+        body {
+            background-image: url('styles/background.png');
+            background-repeat: no-repeat;
+            background-position: fixed;
+        }
+        div {
+            top: 250px;
+            position: relative;
+        }
+        h1 {
+            font-family: 'theFont', 'Avenir Next', 'Avenir Next Ultra Light', 'Helvetica Neue', sans-serif;
+            font-weight: 'light';
+            text-align: center;
+            font-size: 70px;
+            margin: 0;
+            color: #fff;
+        }
+        form {
+            width: 500px;
+            height: 150px;
+            margin: 20px auto 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="home">
+    <div>
+    <h1>MrktBeat</h1>
+        <form action="markets.php" method="POST">
+            <input type="text" id="demo-input" name="q" size="100"/>
+            <input type="submit" value="Submit" style="display:none;" />
+        </form>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#demo-input").tokenInput("data/search.php", 
+                {
+                    theme: "mrktbeat",
+                    preventDuplicates: true,
+                    tokenValue: "name",
+                    hintText: "Type a market name"
+                });
+        });
+
+        $(document).keypress(function(event) {
+            if (event.which == 13 && $('[class^="token-input-token"]').length > 0) {
+                $('form').submit();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#chart_container {
+	height: 400px;
+	width: 1200px;
+	margin: 80px auto 0 auto;
+}
+
+#legend {
+	width: 660px;
+	position: relative;
+	left: 150px;
+}
+
+#legend > div {
+	display: block;
+	/* line-height: 28px; */
+	text-transform: lowercase;
+	font-weight: bold;
+	font-size: 12px;
+	position: relative;
+	height: 45px;
+}
+
+#legend > div > div {
+	padding: 4px 8px;
+	cursor: pointer;
+	border-radius: 8px;
+	height: 28px;
+	display: inline-block;
+}
+
+#legend div.deselected {
+	background-color: #C0C0C0 !important;
+}
+
+#legend span {
+	color: #333;
+	display: block;
+	/* width: 500px; */
+	/* margin-bottom: 2px; */
+	/* margin-left: -130px; */
+	text-align: right;
+	right: 675px;
+	position: relative;
+	top: -33px;
+}
+
+#legend span#name {
+	text-transform: uppercase;
+}
+#legend span#records {
+	font-weight: 200;
+}

@@ -1,12 +1,6 @@
     <html>
 <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
-    <link rel="stylesheet" href="css/token-input.css" type="text/css" />
-    <link rel="stylesheet" href="css/token-input-mrktbeat.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/mrktbeat.css" />
-
     <style>
         @font-face {
           font-family: 'theFont';
@@ -27,6 +21,16 @@
             top: 0;
             left: 0;
             z-index: -50;
+          src: url('styles/font.woff') format('woff');
+        }
+        body {
+            background-image: url('styles/background.png');
+            background-repeat: no-repeat;
+            background-position: fixed;
+        }
+        div {
+            top: 250px;
+            position: relative;
         }
         h1 {
             font-family: 'theFont', 'Avenir Next', 'Avenir Next Ultra Light', 'Helvetica Neue', sans-serif;
@@ -34,6 +38,7 @@
             text-align: center;
             font-size: 70px;
             margin: 0;
+<<<<<<< HEAD
             color: #906abd;
         }
         form {
@@ -42,15 +47,13 @@
             margin: 20px auto 0 auto;
             text-align: center;
         }
-
-
     </style>
 </head>
 
 <body>
     <div id="mrktbeat_search">
     <h1>MrktBeat</h1>
-        <!-- <form action="data/markets.php" method="POST"> -->
+        <form action="data/markets.php" method="POST">
             <input type="text" id="demo-input" name="q" size="100"/>
             <input type="submit" value="Submit" style="display:none;" />
         </form>
@@ -147,6 +150,10 @@
         $(document).ready(function() {
 
             var data = [{"id":"1","name":"Finance"},{"id":"2","name":"Internet"},{"id":"3","name":"Health and Wellness"},{"id":"4","name":"Communities"},{"id":"6","name":"Technology"},{"id":"8","name":"Content Creators"},{"id":"9","name":"E-Commerce"},{"id":"10","name":"Online Shopping"},{"id":"11","name":"Wireless"},{"id":"12","name":"Advertising"},{"id":"14","name":"Education"},{"id":"15","name":"Food Processing"},{"id":"16","name":"Software"},{"id":"17","name":"Health Care"},{"id":"18","name":"Telecommunications"},{"id":"19","name":"Clean Technology"},{"id":"20","name":"Curated Web"},{"id":"21","name":"Hotels"},{"id":"22","name":"Security"},{"id":"23","name":"Design"},{"id":"26","name":"Automotive"},{"id":"27","name":"Hardware"},{"id":"29","name":"Storage"},{"id":"30","name":"Travel"},{"id":"31","name":"Search"},{"id":"33","name":"Enterprise Software"},{"id":"34","name":"Games"},{"id":"37","name":"Home Automation"},{"id":"40","name":"Biotechnology"},{"id":"41","name":"Web Tools"},{"id":"42","name":"Mobile"},{"id":"43","name":"Public Relations"},{"id":"45","name":"Messaging"},{"id":"46","name":"Semiconductors"},{"id":"47","name":"Entertainment"},{"id":"48","name":"News"},{"id":"49","name":"Video Streaming"},{"id":"50","name":"Batteries"},{"id":"51","name":"Hardware + Software"},{"id":"52","name":"Real Estate"},{"id":"54","name":"Mobile Payments"},{"id":"55","name":"Shoes"},{"id":"56","name":"Social Media"},{"id":"57","name":"Web Hosting"},{"id":"58","name":"Chemicals"},{"id":"59","name":"Web CMS"},{"id":"60","name":"Payments"},{"id":"62","name":"Diabetes"},{"id":"63","name":"File Sharing"},{"id":"66","name":"Event Management"},{"id":"67","name":"Cloud Data Services"},{"id":"68","name":"Consumer Electronics"},{"id":"69","name":"Credit"},{"id":"70","name":"Recreation"},{"id":"71","name":"Medical Professionals"},{"id":"72","name":"Web Development"},{"id":"73","name":"Retail"},{"id":"74","name":"Risk Management"},{"id":"75","name":"Home & Garden"},{"id":"80","name":"Cloud-Based Music"},{"id":"81","name":"Customer Service"},{"id":"82","name":"Business Services"},{"id":"83","name":"Communications Hardware"},{"id":"85","name":"English-Speaking"},{"id":"86","name":"Lead Management"},{"id":"87","name":"Medical Devices"},{"id":"90","name":"Semantic Search"},{"id":"91","name":"Tablets"},{"id":"92","name":"Content Delivery"},{"id":"93","name":"Data Security"},{"id":"94","name":"Fleet Management"},{"id":"95","name":"Financial Services"},{"id":"96","name":"Email Marketing"},{"id":"98","name":"B2B Express Delivery"},{"id":"99","name":"Credit Cards"},{"id":"100","name":"Environmental Innovation"},{"id":"102","name":"Insurance"},{"id":"103","name":"Peer-to-Peer"},{"id":"104","name":"Clean Energy"},{"id":"105","name":"Energy Efficiency"},{"id":"107","name":"Financial Exchanges"},{"id":"109","name":"Energy"},{"id":"110","name":"Aerospace"},{"id":"111","name":"Dental"},{"id":"113","name":"Marketing Automation"},{"id":"115","name":"Networking"},{"id":"116","name":"Personal Finance"},{"id":"117","name":"Human Resources"},{"id":"118","name":"Sales and Marketing"},{"id":"119","name":"Nanotechnology"},{"id":"120","name":"Data Integration"},{"id":"121","name":"Enterprises"},{"id":"123","name":"Marketplaces"},{"id":"124","name":"Tech Field Support"},{"id":"125","name":"Video"},{"id":"127","name":"Data Centers"},{"id":"128","name":"Content"},{"id":"129","name":"Testing"},{"id":"130","name":"Geospatial"},{"id":"131","name":"Mobile Security"},{"id":"132","name":"Television"},{"id":"133","name":"Pharmaceuticals"},{"id":"134","name":"Agriculture"},{"id":"136","name":"Enterprise Resource Planning"},{"id":"137","name":"Medical"},{"id":"139","name":"Therapeutics"},{"id":"140","name":"Fraud Detection"},{"id":"141","name":"Groceries"},{"id":"142","name":"Identity"},{"id":"143","name":"Databases"},{"id":"144","name":"Home Decor"},{"id":"145","name":"Data Center Infrastructure"},{"id":"147","name":"Information Security"},{"id":"151","name":"Brokers"},{"id":"152","name":"Specialty Chemicals"},{"id":"154","name":"Distributed Generation"},{"id":"155","name":"Game Mechanics"},{"id":"156","name":"Religion"},{"id":"158","name":"Coffee"},{"id":"160","name":"Lingerie"},{"id":"161","name":"Rapidly Expanding"},{"id":"162","name":"Call Center Automation"},{"id":"163","name":"Recipes"}];
+=======
+        $(document).ready(function() {
+
+            var data = [{"name":"Biotechnology","id":"Biotechnology"},{"name":"Software","id":"Software"},{"name":"Clean Technology","id":"Clean Technology"},{"name":"Health Care","id":"Health Care"},{"name":"E-Commerce","id":"E-Commerce"},{"name":"Mobile","id":"Mobile"},{"name":"Enterprise Software","id":"Enterprise Software"},{"name":"Internet","id":"Internet"},{"name":"Advertising","id":"Advertising"},{"name":"Semiconductors","id":"Semiconductors"},{"name":"Hardware + Software","id":"Hardware + Software"},{"name":"Finance","id":"Finance"},{"name":"Curated Web","id":"Curated Web"},{"name":"Technology","id":"Technology"},{"name":"Games","id":"Games"},{"name":"Web Hosting","id":"Web Hosting"},{"name":"Security","id":"Security"},{"name":"Health and Wellness","id":"Health and Wellness"},{"name":"Online Shopping","id":"Online Shopping"},{"name":"Travel","id":"Travel"},{"name":"Storage","id":"Storage"},{"name":"Social Media","id":"Social Media"},{"name":"Education","id":"Education"},{"name":"Search","id":"Search"},{"name":"Automotive","id":"Automotive"},{"name":"Medical Devices","id":"Medical Devices"},{"name":"Messaging","id":"Messaging"},{"name":"Wireless","id":"Wireless"},{"name":"Telecommunications","id":"Telecommunications"},{"name":"News","id":"News"},{"name":"Video","id":"Video"},{"name":"Design","id":"Design"},{"name":"Communities","id":"Communities"},{"name":"Nanotechnology","id":"Nanotechnology"},{"name":"Payments","id":"Payments"},{"name":"File Sharing","id":"File Sharing"},{"name":"Entertainment","id":"Entertainment"},{"name":"Communications Hardware","id":"Communications Hardware"},{"name":"Mobile Payments","id":"Mobile Payments"},{"name":"Credit","id":"Credit"},{"name":"Hotels","id":"Hotels"},{"name":"Web Development","id":"Web Development"},{"name":"Real Estate","id":"Real Estate"},{"name":"Pharmaceuticals","id":"Pharmaceuticals"},{"name":"Public Relations","id":"Public Relations"},{"name":"Networking","id":"Networking"},{"name":"Marketing Automation","id":"Marketing Automation"},{"name":"Cloud Data Services","id":"Cloud Data Services"},{"name":"Business Services","id":"Business Services"},{"name":"Databases","id":"Databases"},{"name":"Retail","id":"Retail"},{"name":"Human Resources","id":"Human Resources"},{"name":"Peer-to-Peer","id":"Peer-to-Peer"},{"name":"Hardware","id":"Hardware"},{"name":"Mobile Security","id":"Mobile Security"},{"name":"Television","id":"Television"},{"name":"Marketplaces","id":"Marketplaces"},{"name":"Consumer Electronics","id":"Consumer Electronics"},{"name":"Chemicals","id":"Chemicals"},{"name":"Medical","id":"Medical"},{"name":"Financial Services","id":"Financial Services"},{"name":"Therapeutics","id":"Therapeutics"},{"name":"Diabetes","id":"Diabetes"},{"name":"Web Tools","id":"Web Tools"},{"name":"Content","id":"Content"},{"name":"Personal Finance","id":"Personal Finance"},{"name":"Customer Service","id":"Customer Service"},{"name":"Video Streaming","id":"Video Streaming"},{"name":"Agriculture","id":"Agriculture"},{"name":"Testing","id":"Testing"},{"name":"Enterprises","id":"Enterprises"},{"name":"Data Security","id":"Data Security"},{"name":"Home & Garden","id":"Home & Garden"},{"name":"Data Integration","id":"Data Integration"},{"name":"Sales and Marketing","id":"Sales and Marketing"},{"name":"Home Automation","id":"Home Automation"},{"name":"Recreation","id":"Recreation"},{"name":"Cloud-Based Music","id":"Cloud-Based Music"},{"name":"Financial Exchanges","id":"Financial Exchanges"},{"name":"English-Speaking","id":"English-Speaking"},{"name":"Content Creators","id":"Content Creators"},{"name":"Fleet Management","id":"Fleet Management"},{"name":"Content Delivery","id":"Content Delivery"},{"name":"Batteries","id":"Batteries"},{"name":"Geospatial","id":"Geospatial"},{"name":"Lead Management","id":"Lead Management"},{"name":"Distributed Generation","id":"Distributed Generation"},{"name":"Food Processing","id":"Food Processing"},{"name":"Medical Professionals","id":"Medical Professionals"},{"name":"Insurance","id":"Insurance"},{"name":"Dental","id":"Dental"},{"name":"Shoes","id":"Shoes"},{"name":"Groceries","id":"Groceries"},{"name":"Information Security","id":"Information Security"},{"name":"Web CMS","id":"Web CMS"},{"name":"Identity","id":"Identity"},{"name":"B2B Express Delivery","id":"B2B Express Delivery"},{"name":"Brokers","id":"Brokers"},{"name":"Data Centers","id":"Data Centers"},{"name":"Lingerie","id":"Lingerie"},{"name":"Semantic Search","id":"Semantic Search"},{"name":"Data Center Infrastructure","id":"Data Center Infrastructure"},{"name":"Energy Efficiency","id":"Energy Efficiency"},{"name":"Recipes","id":"Recipes"},{"name":"Energy","id":"Energy"},{"name":"Environmental Innovation","id":"Environmental Innovation"},{"name":"Aerospace","id":"Aerospace"},{"name":"Tech Field Support","id":"Tech Field Support"},{"name":"Risk Management","id":"Risk Management"},{"name":"Game Mechanics","id":"Game Mechanics"},{"name":"Credit Cards","id":"Credit Cards"},{"name":"Coffee","id":"Coffee"},{"name":"Religion","id":"Religion"},{"name":"Fraud Detection","id":"Fraud Detection"},{"name":"Rapidly Expanding","id":"Rapidly Expanding"},{"name":"Event Management","id":"Event Management"},{"name":"Tablets","id":"Tablets"},{"name":"Email Marketing","id":"Email Marketing"},{"name":"Enterprise Resource Planning","id":"Enterprise Resource Planning"},{"name":"Call Center Automation","id":"Call Center Automation"},{"name":"Specialty Chemicals","id":"Specialty Chemicals"},{"name":"Clean Energy","id":"Clean Energy"},{"name":"Home Decor","id":"Home Decor"}];
 
             $("#demo-input").tokenInput(data,
                 {
@@ -157,6 +164,7 @@
                     onAdd: removeCircleColorClass,
                     onDelete: addCircleColorClass
               });
+        });
 
         $(document).keypress(function(event) {
             if (event.which == 13 && $('[class^="token-input-token"]').length > 0) {
@@ -265,8 +273,6 @@
                d3.select("#circle_" + token.id).classed("default",true);
             
            }
-
-
     </script>
 </body>
 </html>
