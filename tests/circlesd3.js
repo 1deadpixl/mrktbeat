@@ -25,23 +25,23 @@ $(document).ready(function () {
       //     .start();
 
       var circle = svg.selectAll("circle")
-        .data(data.markets)
+        .data(data)
         .enter().append("circle")
         .attr("market", function(d){ return "#" + d.market })
         // .attr("r", function(d) { return Math.sqrt(d); })
         .attr("r", function(d) { return d.amount * pxMax; })
         .attr("cy", 60)
         .attr("cx", function(d, i) { return i * 100 + 30;})
-        .attr("class", function(d) { 
-          var c = "";
-          if (d.time_since_last <= 3) {c = "red"} 
-          else if (d.time_since_last> 3 && d.time_since_last <= 6) {c = "violet"}
-          else if (d.time_since_last > 6 && d.time_since_last <= 9) {c = "mediumvioletred"}
-          else if (d.time_since_last > 9 && d.time_since_last <= 12) {c = "violet"}
-          else if (d.time_since_last > 12 && d.time_since_last <= 18) {c = "blueviolet"}
-          else if (d.time_since_last > 18) {c = "indigo"}
-          return c;
-         })
+        // .attr("class", function(d) { 
+        //   var c = "";
+        //   if (d.time_since_last <= 3) {c = "red"} 
+        //   else if (d.time_since_last> 3 && d.time_since_last <= 6) {c = "violet"}
+        //   else if (d.time_since_last > 6 && d.time_since_last <= 9) {c = "mediumvioletred"}
+        //   else if (d.time_since_last > 9 && d.time_since_last <= 12) {c = "violet"}
+        //   else if (d.time_since_last > 12 && d.time_since_last <= 18) {c = "blueviolet"}
+        //   else if (d.time_since_last > 18) {c = "indigo"}
+        //   return c;
+        //  })
         .style("fill", function(d,i){
           return colors(i);
         })
